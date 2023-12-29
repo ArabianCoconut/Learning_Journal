@@ -1,3 +1,7 @@
+// Author: ArabianCoconut
+// Date: 28/12/2023
+// Comment: A simple guessing game from the rust book
+
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
