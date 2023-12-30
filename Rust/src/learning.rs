@@ -44,19 +44,20 @@ pub fn twelve_days_of_christmas(){
 
 //Rectangle area
 pub fn rectangle_area(height: u32, width: u32){
-    struct Rectangle{
-        width: u32,
-        height: u32,
-    }
-    let rect1 = Rectangle{
-        width: height,
-        height: width,
-    };
-    println!("The area of the rectangle is {} square pixels.", area(&rect1));
-    
-    // formula for area
-    fn area(rectangle: &Rectangle) -> u32{
-        rectangle.width * rectangle.height
-    }
-
+	struct Rectangle{
+			width: u32,
+			height: u32,
+	}
+    //Comment: This is a method
+	impl Rectangle{
+        // Rectangle formula
+		fn area(&self) -> u32{
+			self.width * self.height
+		}
+	}
+	let rect1 = Rectangle{
+			width: height,
+			height: width,
+	};
+	println!("The area of the rectangle is {} square pixels.", rect1.area());
 }
