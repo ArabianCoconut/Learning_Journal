@@ -20,10 +20,10 @@ fn main() {
         match input {
             "1" => guessing_game::guessing_game(),
             "2" => learning::temperature_converting(180.0, 70.0),
-            "3"=> learning::fibonacci(10),
+            "3" => learning::fibonacci(10),
             "4" => learning::twelve_days_of_christmas(),
             "q" => exit(0),
-            _ =>print!("Please type a number between 1 and 4 or q to quit") 
+            _   => print!("Please type a number between 1 and 4 or q to quit") 
         }
     return main();
 
