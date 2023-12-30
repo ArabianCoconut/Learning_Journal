@@ -6,4 +6,6 @@ mod learning;
 fn main() {
     guessing_game::guessing_game();
     learning::temperature_converting(180.0, 70.0);
+    learning::fibonacci(10);
+    learning::twelve_days_of_christmas();
 }
