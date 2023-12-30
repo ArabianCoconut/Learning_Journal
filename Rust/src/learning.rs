@@ -41,8 +41,9 @@ pub fn twelve_days_of_christmas(){
         println!();
     }
 }
-// ref: https://doc.rust-lang.org/book/ch05-03-method-syntax.html
+
 //Rectangle area
+// ref: https://doc.rust-lang.org/book/ch05-03-method-syntax.html
 pub fn rectangle_area(height: u32, width: u32){
 	struct Rectangle{
 			width: u32,
