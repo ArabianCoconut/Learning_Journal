@@ -14,7 +14,6 @@ fn main() {
     Note: Type q to quit
     ";
     println!("{}", program_text);
-    
     io::stdin().read_line(&mut input).expect("Failed to read line");
     let input = input.trim();
         match input {

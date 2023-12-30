@@ -1,5 +1,6 @@
+workspace = { members = ["learning_rust"] }
 [package]
-name = "guessing_game"
+name = "learning"
 version = "0.1.0"
 edition = "2021"
 authors = ["ArabianCoconut"]
