@@ -50,7 +50,7 @@ pub fn rectangle_area(height: u32, width: u32){
 	}
     //Comment: This is a method
 	impl Rectangle{
-        // Rectangle formula
+        // Method Rectangle formula
 		fn area(&self) -> u32{
 			self.width * self.height
 		}
