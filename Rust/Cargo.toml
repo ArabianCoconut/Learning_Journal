@@ -7,4 +7,5 @@ authors = ["ArabianCoconut"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+indoc = "2.0.4"
 rand = "0.8.5"
