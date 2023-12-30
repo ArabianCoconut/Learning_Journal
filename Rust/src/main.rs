@@ -10,7 +10,8 @@ fn main() {
     1. Guessing Game
     2. Temperature Converting
     3. Fibonacci
-    4. Twelve Days of Christmas\n
+    4. Twelve Days of Christmas
+    5. Rectangle Area\n
     Note: Type q to quit
     ";
     println!("{}", program_text);
@@ -21,6 +22,7 @@ fn main() {
             "2" => learning::temperature_converting(180.0, 70.0),
             "3" => learning::fibonacci(10),
             "4" => learning::twelve_days_of_christmas(),
+            "5" => learning::rectangle_area(10, 20),
             "q" => exit(0),
             _   => print!("Please type a number between 1 and 4 or q to quit") 
         }
