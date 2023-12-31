@@ -2,7 +2,6 @@
 // Date: 28/12/2023
 use std::{io,process::exit};
 use indoc::indoc;
-mod guessing_game;
 mod library;
 fn main() {
     //take user input
@@ -23,7 +22,7 @@ fn main() {
 		println!("You chose option: {}", input);
 		let input = input.trim();
 		match input {
-		"1" => guessing_game::guessing_game(),
+		"1" => library::guessing_game(),
 		"2" => library::temperature_converting(180.0, 70.0),
 		"3" => library::fibonacci(10),
 		"4" => library::twelve_days_of_christmas(),
