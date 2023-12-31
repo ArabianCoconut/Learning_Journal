@@ -66,15 +66,15 @@ pub fn twelve_days_of_christmas(){
 		let gifts: [&str; 12] = ["A partridge in a pear tree", "Two turtle doves", "Three French hens", "Four calling birds",
 								"Five gold rings", "Six geese a-laying", "Seven swans a-swimming", "Eight maids a-milking",
 								"Nine ladies dancing", "Ten lords a-leaping", "Eleven pipers piping", "Twelve drummers drumming"];
-		for i in 0..12{
-				println!("On the {} day of Christmas my true love sent to me", days[i]);
-				for j in (0..i+1).rev(){
-						if j == 0 && i != 0{
-								print!("And ");
-						}
-						println!("{}", gifts[j]);
+		for (i, _) in days.iter().enumerate(){
+			println!("On the {} day of Christmas my true love sent to me", days[i]);
+			for j in (0..i+1).rev(){
+				if j == 0 && i != 0{
+					print!("And ");
 				}
-				println!();
+				println!("{}", gifts[j]);
+			}
+			println!();
 		}
 }
 //Rectangle area
@@ -102,10 +102,16 @@ pub fn rectangle_area(height: u32, width: u32){
 	mod tests{
 	use super::*;
 	#[test]
-	fn test_functions(){
+	fn test_temperature_converter(){
 		assert_eq!(temperature_converting(180.0, 70.0), (), "temperature_converting() should return value");
-		assert_eq!(fibonacci(10), (), "fibonacci() should return value");
-		assert_eq!(twelve_days_of_christmas(), (), "twelve_days_of_christmas() should return string");
-		assert_eq!(rectangle_area(10, 20), (), "rectangle_area() should return value of 200 square pixels");
 	}
+	#[test]
+	fn test_fibonacci(){
+		assert_eq!(fibonacci(10), (), "fibonacci() should return value");}
+	#[test]
+	fn test_twelve_days_of_christmas(){
+		assert_eq!(twelve_days_of_christmas(), (), "twelve_days_of_christmas() should return value");}
+	#[test]
+	fn test_rectangle_area(){
+		assert_eq!(rectangle_area(10, 20), (), "rectangle_area() should return value");}
 	}
