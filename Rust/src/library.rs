@@ -7,7 +7,7 @@ pub fn temperature_converting(c: f32, f: f32){
     // Comment: A simple temperature converting function
     let formula_celsius :f32= (f-32.0)*(0.55);
     let formula_fahrenheit :f32= (c*1.8)+(32.0);
-    return println!("{}°C = {}°F\n{}°F = {}°C", c,formula_fahrenheit, f,formula_celsius);
+    println!("{}°C = {}°F\n{}°F = {}°C", c,formula_fahrenheit, f,formula_celsius)
 }
 
 //Generate the nth Fibonacci number

@@ -3,7 +3,7 @@
 use std::{io,process::exit};
 use indoc::indoc;
 mod guessing_game;
-mod lib;
+mod library;
 fn main() {
     //take user input
     let mut input = String::new();
@@ -20,15 +20,15 @@ fn main() {
     "};
     println!("{}", program_text);
 		io::stdin().read_line(&mut input).expect("Failed to read line");
-		print!("You chose option: {}\n", input);
+		println!("You chose option: {}", input);
 		let input = input.trim();
 		match input {
 		"1" => guessing_game::guessing_game(),
-		"2" => lib::temperature_converting(180.0, 70.0),
-		"3" => lib::fibonacci(10),
-		"4" => lib::twelve_days_of_christmas(),
-		"5" => lib::rectangle_area(10, 20),
+		"2" => library::temperature_converting(180.0, 70.0),
+		"3" => library::fibonacci(10),
+		"4" => library::twelve_days_of_christmas(),
+		"5" => library::rectangle_area(10, 20),
 		"q" => exit(0),
-		_   => print!("Please type a number between 1 and 4 or q to quit\n")
+		_   => println!("Please type a number between 1 and 4 or q to quit")
 		}
 }
