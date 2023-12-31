@@ -61,3 +61,15 @@ pub fn rectangle_area(height: u32, width: u32){
 	};
 	println!("The area of the rectangle is {} square pixels.", rect1.area());
 }
+
+	#[cfg(test)]
+	mod tests{
+	use super::*;
+	#[test]
+	fn test_functions(){
+		assert_eq!(temperature_converting(180.0, 70.0), (), "temperature_converting() should return value");
+		assert_eq!(fibonacci(10), (), "fibonacci() should return value");
+		assert_eq!(twelve_days_of_christmas(), (), "twelve_days_of_christmas() should return string");
+		assert_eq!(rectangle_area(10, 20), (), "rectangle_area() should return value of 200 square pixels");
+	}
+	}

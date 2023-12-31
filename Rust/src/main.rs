@@ -31,5 +31,4 @@ fn main() {
 		"q" => exit(0),
 		_   => print!("Please type a number between 1 and 4 or q to quit\n")
 		}
-		return main();
 }
