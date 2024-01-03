@@ -16,3 +16,4 @@ Cargo.lock
 # Exclude file
 learning_rust/
 .vscode/settings.json
+Golang/
