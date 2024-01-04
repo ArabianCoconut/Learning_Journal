@@ -14,7 +14,10 @@ fn main() {
       2. Temperature Converting
       3. Fibonacci
       4. Twelve Days of Christmas
-      5. Rectangle Area\n
+      5. Rectangle Area
+      6. Employee Data
+      7. Median and Mode
+      8. Pig Latin\n
       Note: Type q to quit
     "};
     println!("{}", program_text);
