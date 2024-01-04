@@ -98,6 +98,131 @@ pub fn rectangle_area(height: u32, width: u32){
 	println!("The area of the rectangle is {} square pixels.", rect1.area());
 }
 
+pub fn median_mode(data: Vec<i32>, lenght: usize) {
+	use std::collections::HashMap;
+	let v = data.iter().sum::<i32>();
+	let result = v / lenght as i32;
+	println!("The median is {}", result);
+
+	// Mode
+	let mut map = HashMap::new();
+	for num in data {
+		let count = map.entry(num).or_insert(0);
+		*count += 1;
+	}
+	// find the max value and print the key associated with it
+	let max = map.values().max().unwrap();
+	for (key, value) in &map {
+		if value == max {
+			println!("The mode is {}", key);
+		}
+	}
+}
+
+pub fn pig_latin(s: &str){
+	let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+	s.split_whitespace()
+			.map(|word| {
+					let first_char = word.chars().nth(0).unwrap();
+					if vowels.contains(&first_char) {
+							format!("{}-hay", word)
+					} else {
+							format!("{}{}-ay", &word[1..], first_char)
+					}
+			})
+			.collect::<Vec<String>>()
+			.join(" ");
+			print!("{}", s);
+}
+
+pub fn employee_data(){
+	use std::collections::HashMap;
+	use std::io;
+	struct EmployeeDb {
+			employees: HashMap<String, String>,
+	}
+	
+	impl EmployeeDb {
+			fn new() -> EmployeeDb {
+					EmployeeDb {
+							employees: HashMap::new(),
+					}
+			}
+	
+			fn add_employee(&mut self, name: String, department: String) {
+					self.employees.insert(name, department);
+			}
+			fn get_employees(&self) -> &HashMap<String, String> {
+					&self.employees
+			}
+			fn get_all_departments(&self) -> Vec<&String> {
+					let mut departments: Vec<&String> = Vec::new();
+					for (_name, department) in &self.employees {
+							if !departments.contains(&department) {
+									departments.push(&department);
+							}
+					}
+					departments
+			}
+		}
+
+		let mut db = EmployeeDb::new();
+		loop {
+			const PROGRAM_TEXT: &str = r#"
+			1) Add employee and Department
+			2) List all employees
+			3) List all employees in a department
+			4) List all departments
+			5) "q" to Exit
+			"#;
+			
+			println!("{}", PROGRAM_TEXT);
+
+			let mut input = String::new();
+			io::stdin().read_line(&mut input).expect("Failed to read line");
+			let input = input.trim();
+			
+			match input {
+				"1" => {
+					println!("Enter employee name:");
+					let mut name = String::new();
+					io::stdin().read_line(&mut name).expect("Failed to read line");
+					let name = name.trim();
+					println!("Enter department name:");
+					let mut department = String::new();
+					io::stdin().read_line(&mut department).expect("Failed to read line");
+					let department = department.trim();
+					db.add_employee(name.to_string(), department.to_string());
+					println!("\nAdded employee {} to department {}\n", name, department)
+				}
+				"2" => {
+					for (name, department) in db.get_employees() {
+							println!("Name {}:{} Department", name, department);
+					}
+				}
+				"3" => {
+					println!("Enter department name:");
+					let mut department = String::new();
+					io::stdin().read_line(&mut department).expect("Failed to read line");
+					let department = department.trim();
+					for (name, dept) in db.get_employees() {
+							if dept == department {
+									println!("Name {}:{} Department", name, dept);
+							}
+					}
+				}
+				"4" => {
+					for department in db.get_all_departments() {
+							println!("Department of {}", department);
+					}
+				}
+				"q" => break,
+				_ => println!("Please type a number between 1 and 4 or q to exit"),
+			}
+	}
+}
+
+
 	#[cfg(test)]
 	mod tests{
 	use super::*;

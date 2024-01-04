@@ -18,7 +18,10 @@ fn main() {
       Note: Type q to quit
     "};
     println!("{}", program_text);
-		io::stdin().read_line(&mut input).expect("Failed to read line");
+		let example= vec![1,2,3,4,3];
+    let example_2 = "Hello World";
+    
+    io::stdin().read_line(&mut input).expect("Failed to read line");
 		println!("You chose option: {}", input);
 		let input = input.trim();
 		match input {
@@ -27,7 +30,11 @@ fn main() {
 		"3" => library::fibonacci(10),
 		"4" => library::twelve_days_of_christmas(),
 		"5" => library::rectangle_area(10, 20),
+    "6" => library::employee_data(),
+    "7" => library::median_mode(example.clone(),example.len()),
+    "8" => library::pig_latin(example_2),
 		"q" => exit(0),
 		_   => println!("Please type a number between 1 and 4 or q to quit")
 		}
+
 }
