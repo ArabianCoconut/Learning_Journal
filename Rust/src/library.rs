@@ -239,4 +239,15 @@ pub fn employee_data(){
 	#[test]
 	fn test_rectangle_area(){
 		assert_eq!(rectangle_area(10, 20), (), "rectangle_area() should return value");}
+	#[test]
+	fn test_median_mode(){
+		let example= vec![1,2,3,4,3];
+		assert_eq!(median_mode(example.clone(),example.len()), (), "median_mode() should return value");}
+	#[test]
+	fn test_pig_latin(){
+		let example_2 = "Hello World";
+		assert_eq!(pig_latin(example_2), (), "pig_latin() should return value");}
+	#[test]
+	fn test_employee_data(){
+		assert_eq!(employee_data(), (), "employee_data() should return value");}
 	}
