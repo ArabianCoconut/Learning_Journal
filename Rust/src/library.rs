@@ -123,7 +123,7 @@ pub fn pig_latin(s: &str){
 	let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 	s.split_whitespace()
 			.map(|word| {
-					let first_char = word.chars().nth(0).unwrap();
+					let first_char = word.chars().next().unwrap();
 					if vowels.contains(&first_char) {
 							format!("{}-hay", word)
 					} else {
@@ -157,9 +157,9 @@ pub fn employee_data(){
 			}
 			fn get_all_departments(&self) -> Vec<&String> {
 					let mut departments: Vec<&String> = Vec::new();
-					for (_name, department) in &self.employees {
+					for department in self.employees.values() {
 							if !departments.contains(&department) {
-									departments.push(&department);
+									departments.push(department);
 							}
 					}
 					departments
