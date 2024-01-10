@@ -42,7 +42,8 @@ pub fn guessing_game() {
         };
 
         println!("You guessed: {}", &guess);
-
+        
+        // Comment: Input validation
         match guess.cmp(&secret_number) {
             Ordering::Less => Guess::new(guess).value(),
             Ordering::Greater => Guess::new(guess).value(),
