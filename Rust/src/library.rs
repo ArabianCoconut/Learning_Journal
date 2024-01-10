@@ -135,10 +135,10 @@ pub fn rectangle_area(height: u32, width: u32) {
     );
 }
 
-pub fn median_mode(data: Vec<i32>, lenght: usize) {
+pub fn median_mode(data: Vec<i32>, length: usize) {
     use std::collections::HashMap;
     let v = data.iter().sum::<i32>();
-    let result = v / lenght as i32;
+    let result = v / length as i32;
     println!("The median is {}", result);
 
     // Mode
