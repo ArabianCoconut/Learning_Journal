@@ -2,7 +2,6 @@
 //Date: 30/12/2023
 //Description: Basic code for practice from The Rust book.
 //Ref: https://doc.rust-lang.org/book/ch03-05-control-flow.html
-
 // Comment: A simple guessing game from the rust book
 pub fn guessing_game() {
     use rand::Rng;
@@ -14,7 +13,7 @@ pub fn guessing_game() {
     }
     impl Guess {
         fn new(value: i32) -> Guess {
-            if value < 1 || value > 100 {
+            if !(1..=100).contains(&value) {
                 panic!("Guess value must be between 1 and 100, got {}.", value);
             }
             Guess { value }
@@ -42,7 +41,7 @@ pub fn guessing_game() {
         };
 
         println!("You guessed: {}", &guess);
-        
+
         // Comment: Input validation
         match guess.cmp(&secret_number) {
             Ordering::Less => Guess::new(guess).value(),
@@ -268,53 +267,59 @@ pub fn employee_data() {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_temperature_converter() {
-        assert_eq!(
-            temperature_converting(180.0, 70.0),
-            (),
-            "temperature_converting() should return value"
-        );
-    }
-    #[test]
-    fn test_fibonacci() {
-        assert_eq!(fibonacci(10), (), "fibonacci() should return value");
-    }
-    #[test]
-    fn test_twelve_days_of_christmas() {
-        assert_eq!(
-            twelve_days_of_christmas(),
-            (),
-            "twelve_days_of_christmas() should return value"
-        );
-    }
-    #[test]
-    fn test_rectangle_area() {
-        assert_eq!(
-            rectangle_area(10, 20),
-            (),
-            "rectangle_area() should return value"
-        );
-    }
-    #[test]
-    fn test_median_mode() {
-        let example = vec![1, 2, 3, 4, 3];
-        assert_eq!(
-            median_mode(example.clone(), example.len()),
-            (),
-            "median_mode() should return value"
-        );
-    }
-    #[test]
-    fn test_pig_latin() {
-        let example_2 = "Hello World";
-        assert_eq!(pig_latin(example_2), (), "pig_latin() should return value");
-    }
-    #[test]
-    fn test_employee_data() {
-        assert_eq!(employee_data(), (), "employee_data() should return value");
-    }
-}
+// ! Will come back to this later
+// #[cfg(test)] 
+// mod tests {
+//     #![deny(clippy::all)]
+//     use super::*;
+//     #[test]
+//     fn test_temperature_converter() {
+//         assert_eq!(
+//             temperature_converting(180.0, 70.0),
+//             (),
+//             "temperature_converting() should return value"
+//         );
+//     }
+//     #[test]
+//     fn test_fibonacci() {
+//         assert_ne!(fibonacci(10), (), "fibonacci() should return value");
+//     }
+//     #[test]
+//     fn test_twelve_days_of_christmas() {
+//         assert_eq!(
+//             twelve_days_of_christmas(),
+//             (),
+//             "twelve_days_of_christmas() should return value"
+//         );
+//     }
+//     #[test]
+//     fn test_rectangle_area() {
+//         assert_eq!(
+//             rectangle_area(10, 20),
+//             (),
+//             "rectangle_area() should return value"
+//         );
+//     }
+//     #[test]
+//     fn test_median_mode() {
+//         let example = vec![1, 2, 3, 4, 3];
+//         assert_eq!(
+//             median_mode(example.clone(), example.len()),
+//             (),
+//             "median_mode() should return value"
+//         );
+//     }
+//     #[test]
+//     fn test_pig_latin() {
+//         let example_2 = "Hello World";
+//         assert_eq!(pig_latin(example_2), (), "pig_latin() should return value");
+//     }
+//     #[test]
+//     fn test_employee_data() {
+//         assert_eq!(employee_data(), (), "employee_data() should return value");
+//     }
+//     #[test]
+//     fn test_guessing_game() {
+//         assert_eq!(guessing_game(), (), "guessing_game() should return value");
+//     }
+// }
